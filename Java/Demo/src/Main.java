@@ -1,15 +1,32 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
-    public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.println("Hello and welcome!");
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args){
+        Scanner input = new Scanner(System.in);
+        int option;
+        double weight;
+        double result;
+        System.out.println("Weight Conversion Program");
+        System.out.println("1: Convert lbs to kgs");
+        System.out.println("2: Convert kgs to lbs");
+        System.out.print("Choose an option (1 or 2):");
+        option = input.nextInt();
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        if(option == 1){
+            System.out.print("Enter the weight in lbs: ");
+            weight = input.nextDouble();
+            result = weight/2.20462;
+            System.out.printf("The new weight in kgs is : %.2f kgs",result );
         }
+        else if(option == 2){
+            System.out.print("Enter the weight in kgs: ");
+            weight = input.nextDouble();
+            result = weight*2.20462;
+            System.out.printf("The new weight in lbs is : %.2f lbs",result );
+        }
+        else{
+            System.out.println("Sorry, You entered wrong choice.");
+        }
+
+        input.close();
     }
 }
