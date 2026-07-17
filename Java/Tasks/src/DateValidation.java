@@ -7,6 +7,7 @@ public class DateValidation {
         int month;
         int year;
         boolean validDate = true;
+        boolean leapYear = false;
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter Day: ");
         day = scanner.nextInt();
@@ -16,6 +17,9 @@ public class DateValidation {
         System.out.print("Enter Year: ");
         year = scanner.nextInt();
 
+        if(year%400==0 || (year %4== 0 && year%100 != 0)){
+            leapYear = true;
+        }
         if(day<1 || day>31){
             validDate = false;
         } else if (month<1 || month >12) {
@@ -47,10 +51,12 @@ public class DateValidation {
         }
         System.out.println("-----------------------");
         if(validDate){
-            System.out.printf("%d:%d:%s = VALID DATE",day,month,year);
+            System.out.printf("%d:%d:%s = VALID DATE\n",day,month,year);
+            System.out.println("leap Year : "+ leapYear);
         }
         else{
-            System.out.printf("%d:%d:%s = INVALID DATE",day,month,year);
+            System.out.printf("%d:%d:%s = INVALID DATE\n",day,month,year);
+            System.out.println("leap Year : "+ leapYear);
         }
         scanner.close();
     }
