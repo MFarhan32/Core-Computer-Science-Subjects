@@ -30,7 +30,7 @@ public class dateValidationAndNextDate {
         }
         else{
             if(month == 2){
-                if(year%400==0 || (year %4== 0 && year%100 != 0)){
+                if(year % 400==0 || (year % 4== 0 && year % 100 != 0)){
                     if(day>29){
                         validDate = false;
                     }
