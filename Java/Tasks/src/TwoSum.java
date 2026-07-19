@@ -1,13 +1,8 @@
 import java.util.Scanner;
 
 public class TwoSum {
-    public static void main(String[] args){
-        int[] numbers = {2,4,5,3,8};
-        int target;
-        boolean matchTarget = false;
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter value of Target: ");
-        target = scanner.nextInt();
+
+    static void sumNum(int[] numbers, int target, boolean matchTarget){
         for(int i=0;i<numbers.length-1;i++){
             for (int j=i+1;j<numbers.length;j++){
                 if (numbers[i] + numbers[j]==target){
@@ -21,6 +16,17 @@ public class TwoSum {
         if(!matchTarget){
             System.out.println("Target not found.");
         }
+    }
+
+    public static void main(String[] args){
+        int[] numbers = {2,4,5,3,8};
+        int target;
+        boolean matchTarget = false;
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter value of Target: ");
+        target = scanner.nextInt();
+
+        sumNum(numbers,target,matchTarget);
         scanner.close();
     }
 }
