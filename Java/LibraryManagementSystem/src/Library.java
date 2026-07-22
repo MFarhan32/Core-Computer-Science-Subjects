@@ -1,13 +1,21 @@
 public class Library {
     Book[] books;
-
-    Library(Book[] book){
-        this.books = book;
+    int count;
+    Library(int size){
+        books = new Book[size];
+        count=0;
     }
 
-//    public void addBook(Book books){
-//
-//    }
+    public void addBook(Book book){
+        if(count<books.length){
+             books[count]=book;
+            System.out.println(book.getTitle()+" book added successfully.");
+             count++;
+        }
+        else{
+            System.out.println("Library is FULL.");
+        }
+    }
     public void borrowBook(String title){
         for (Book book : books){
             if(book.getTitle() == title && book.getAvailable()==true){
@@ -16,7 +24,7 @@ public class Library {
                 return;
             }
             else if(book.getTitle() == title && book.getAvailable()==false){
-                System.out.println("Book is already Issued.");
+                System.out.println(book.getTitle()+" book is already Issued.");
                 return;
             }
         }
@@ -35,7 +43,11 @@ public class Library {
     }
     public void displayBooks(){
         for (Book book : books){
-            System.out.println(book.toString());
+            if(book!=null){
+            System.out.println(book);}
+            else{
+                continue;
+            }
         }
     }
 
