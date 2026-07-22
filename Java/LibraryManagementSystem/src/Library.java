@@ -22,9 +22,17 @@ public class Library {
         }
         System.out.println("Book is not available in the Library.");
     }
-//    public void returnBook(titlel){
-//
-//    }
+
+
+    public void returnBook(String title){
+        for (Book book : books){
+            if(book.getTitle() == title && book.getAvailable()==false){
+                book.setAvailable(true);
+                System.out.println("Book returned Successfully.");
+                return;
+            }
+        }
+    }
     public void displayBooks(){
         for (Book book : books){
             System.out.println(book.toString());

@@ -11,6 +11,8 @@ public class Main {
         library.displayBooks();
         library.borrowBook("DSA");
         library.displayBooks();
-        library.borrowBook("DB");
+        library.returnBook("DSA");
+        library.displayBooks();
+
     }
 }
