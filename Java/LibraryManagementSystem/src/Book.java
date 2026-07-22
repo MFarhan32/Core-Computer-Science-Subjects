@@ -38,11 +38,11 @@ public class Book {
         return this.price;
     }
 
-    public String getAvailable(){
+    public boolean getAvailable(){
         if(!available){
-            return "Unavailable";
+            return false;
         }
-        return "Available";
+        return true;
 
     }
     public void setAvailable(boolean available){
@@ -51,5 +51,6 @@ public class Book {
 
     public String toString(){
         return this.getTitle() + " (" + this.getAvailable()+ ")";
-    }
+        }
+
 }

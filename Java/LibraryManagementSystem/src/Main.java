@@ -4,9 +4,13 @@ public class Main {
     public static void main(String[] args){
 
         Book book1 = new Book("DSA", "Shahbaz Akhtar",10.50);
-        Book [] books = {book1};
+        Book book2 = new Book("Java", "Shahid Bhatti",20,false);
+        Book [] books = {book1,book2};
 
         Library library = new Library(books);
         library.displayBooks();
+        library.borrowBook("DSA");
+        library.displayBooks();
+        library.borrowBook("DB");
     }
 }
