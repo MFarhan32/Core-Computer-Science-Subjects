@@ -14,34 +14,57 @@ public class Main {
         fw.close();*/
 
         String filePath = "words.txt";
-        BufferedReader br =new BufferedReader(new FileReader(filePath));
+
         String line;
         char guess;
         int guessCount=0;
         ArrayList<String> words = new ArrayList<>();
         Scanner sc = new Scanner(System.in);
 
-        while((line=br.readLine())!=null){
-            words.add(line);
-            //System.out.println(line.trim());
+        try(BufferedReader br =new BufferedReader(new FileReader(filePath))) {
+            while ((line = br.readLine()) != null) {
+                words.add(line.trim());
+                //System.out.println(line.trim());
+            }
         }
-        Random random = new Random();
-        String word =words.get(random.nextInt(words.size()));
-        System.out.println("***********************");
-        System.out.println("Welcome to Hangman Game");
-        System.out.println("***********************");
-        for (int i=0;i<word.length();i++){
-            System.out.print(" _ ");
+        catch(FileNotFoundException e){
+            System.out.println("File Not Found.");
         }
-        System.out.println();
-        System.out.print("Guess your Letter: ");
-        guess = sc.next().toUpperCase().charAt(0);
+        catch (IOException e){
+            System.out.println("Something went wrong");
+        }
 
-//        for (int i=0; i<word.length();i++){
-//            if(guess==word.charAt(i)){
-//                word.replace()
-//            }
-//        }
-        br.close();
+
+        while(guessCount<6){
+            Random random = new Random();
+            String word =words.get(random.nextInt(words.size()));
+            ArrayList<Character> wordState = new ArrayList<>();
+            System.out.println("***********************");
+            System.out.println("Welcome to Hangman Game");
+            System.out.println("***********************");
+            for (int i=0;i<word.length();i++){
+                wordState.add('_');
+            }
+
+            for (char ch : wordState){
+                System.out.print(ch);
+            }
+            System.out.println();
+            System.out.print("Guess your Letter: ");
+            guess = sc.next().toLowerCase().charAt(0);
+
+            for (int i=0; i<word.length();i++){
+                if(guess==word.charAt(i)){
+                    System.out.println("Correct guess.");
+                    wordState.set(i,guess);
+                }
+                else{
+                    guessCount++;
+                    System.out.println("Incorrect Guess.");
+                }
+            }
+
+        }
+
     }
 }
