@@ -21,6 +21,9 @@ public class Main {
                 System.out.println("INVALID format. Please use 'HH:mm:ss'");
             }
         }
+        AlarmClock alarmClock = new AlarmClock(localTime);
+        Thread alarmThread = new Thread(alarmClock);
+        alarmThread.start();
         scanner.close();
 
     }
