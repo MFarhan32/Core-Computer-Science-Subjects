@@ -1,5 +1,3 @@
-
-
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
@@ -9,6 +7,7 @@ public class Main {
     public static void main(String[] args) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
         LocalTime localTime=null;
+        String filePath="src//file_example_WAV_1MG.wav";
 
         Scanner scanner=new Scanner(System.in);
         while(localTime==null) {
@@ -21,10 +20,8 @@ public class Main {
                 System.out.println("INVALID format. Please use 'HH:mm:ss'");
             }
         }
-        AlarmClock alarmClock = new AlarmClock(localTime);
+        AlarmClock alarmClock = new AlarmClock(localTime,filePath,scanner);
         Thread alarmThread = new Thread(alarmClock);
         alarmThread.start();
-        scanner.close();
-
     }
 }
