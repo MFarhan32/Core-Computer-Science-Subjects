@@ -23,7 +23,6 @@ public class Main {
         try(BufferedReader br =new BufferedReader(new FileReader(filePath))) {
             while ((line = br.readLine()) != null) {
                 words.add(line.trim());
-                //System.out.println(line.trim());
             }
         }
         catch(FileNotFoundException e){
@@ -34,8 +33,6 @@ public class Main {
         }
 
         int guessCount=0;
-
-
         Random random = new Random();
         String word =(words.get(random.nextInt(words.size()))).toLowerCase();
         ArrayList<Character> wordState = new ArrayList<>();
