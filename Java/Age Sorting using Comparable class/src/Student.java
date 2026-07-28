@@ -13,8 +13,13 @@ public class Student implements Comparable<Student>{
 
     @Override
     public int compareTo(Student that) {
-        return this.name.compareToIgnoreCase(that.name);
+        return this.age > that.age ? 1:-1;
     }
+
+//    @Override
+//    public int compareTo(Student that) {
+//        return this.name.compareToIgnoreCase(that.name);
+//    }
 
 //    @Override
 //    public int compareTo(Student other) {
